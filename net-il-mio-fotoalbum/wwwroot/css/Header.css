@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .header {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/header.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/header.jpg") center/cover no-repeat;
     color: #fff;
 }
 
@@ -246,6 +246,10 @@ blockquote {
         .social-icons ul a:hover {
             background: var(--lightGreen);
             border-color: var(--lightGreen);
+        }
+
+        .margin_name{
+            margin-top:120px;
         }
 
 /********************* End of Header ***********************/

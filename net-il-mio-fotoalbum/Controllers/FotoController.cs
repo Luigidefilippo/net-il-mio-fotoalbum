@@ -5,7 +5,7 @@ namespace net_il_mio_fotoalbum.Controllers
 {
 	[Authorize]
 	public class FotoController : Controller
-	{ 
+	{
 		public IActionResult Index()
 
 		{
