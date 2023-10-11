@@ -1,1 +1,76 @@
-﻿<h1>Amministrazione</h1>
+﻿@{
+    Layout = "_Layout";
+}
+
+@model List<Foto>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @if (User.IsInRole("SUPERADMIN"))
+                {
+                    <a class=" btn btn-primary" href="@Url.Action("Creazione", "Foto")">
+                        Crea una nuova tabella
+                    </a>
+
+                }
+
+                <h1 class="my-5">Lista delle foto</h1>
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Immagine</th>
+                            <th scope="col">Titolo</th>
+                            <th scope="col">Descrizione</th>
+                            <th scope="col">Eventi</th>
+                            <th scope="col">Azioni</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Foto foto in Model)
+                        {
+                            <tr>
+                                <th scope="row">@foto.Id</th>
+                                <td><img class="w-50" src="@foto.Pathimg" alt="@foto.Title" /></td>
+                                <td>@foto.Title</td>
+                                <td>@foto.Description</td>
+                                <td>
+                                    @if (foto.Categories?.Count > 0)
+                                    {
+                                        @string.Join(", ", foto.Categories.Select(i=>i.Name))
+                                    }
+                                    else
+                                    {
+                                        <span>Nessuna Categoria associata</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary m-1" href="@Url.Action("Dettagli", "Foto", new{id=foto.Id})">Dettagli della foto</a>
+                                    @if (User.IsInRole("ADMIN"))
+                                    {
+                                        <a class="btn btn-primary m-1" href="@Url.Action("Modifica", "Foto", new{id=foto.Id})">Modifica la foto</a>
+                                        <form asp-controller="Foto" asp-action="Cancella" asp-route-id="@foto.Id" method="post">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-primary m-1">
+                                                Cancella
+                                            </button>
+                                        </form>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
