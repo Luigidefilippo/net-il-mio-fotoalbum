@@ -3,10 +3,7 @@
 }
 
 @model List<Foto>
-
-
-
-    <div class="container">
+   <div class="container">
         <div class="row">
             <div class="col-12">
                 @if (User.IsInRole("SUPERADMIN"))
@@ -52,7 +49,7 @@
                                 </td>
                                 <td>
                                     <a class="btn btn-primary m-1" href="@Url.Action("Dettagli", "Foto", new{id=foto.Id})">Dettagli della foto</a>
-                                    @if (User.IsInRole("ADMIN"))
+                                    @if (User.IsInRole("SUPERADMIN"))
                                     {
                                         <a class="btn btn-primary m-1" href="@Url.Action("Modifica", "Foto", new{id=foto.Id})">Modifica la foto</a>
                                         <form asp-controller="Foto" asp-action="Cancella" asp-route-id="@foto.Id" method="post">

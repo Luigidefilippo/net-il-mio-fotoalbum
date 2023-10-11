@@ -30,10 +30,107 @@ namespace net_il_mio_fotoalbum.Controllers
 		}
 
 		[Authorize(Roles = "SUPERADMIN , ADMIN")]
-		public IActionResult Modifica()
+
+        [HttpGet]
+		public IActionResult Modifica(int id)
 		{
-			return View("Modifica");
-		}
+            Foto? fotoDaModificare = _myDb.Fotos.Where(f => f.Id == id).Include(f => f.Categories).FirstOrDefault();
+
+            if (fotoDaModificare == null)
+            {
+                return NotFound($"il Post con {id} non possibile modificarla!");
+
+            }
+            else
+            {
+
+                List<Category> eventiNelDb = _myDb.Categories.ToList();
+                List<SelectListItem> eventiSelezionati = new List<SelectListItem>();
+
+                foreach (Category evento in eventiNelDb)
+                {
+                    eventiSelezionati.Add(new SelectListItem
+                    {
+                        Text = evento.Name,
+                        Value = evento.Id.ToString(),
+                        Selected = fotoDaModificare.Categories.Any(e => e.Id == evento.Id),
+                    });
+                }
+
+                FotoFormModel model = new FotoFormModel
+                {
+                    Foto = fotoDaModificare,
+
+                    Categories = eventiSelezionati
+                };
+
+                return View("Modifica", model);
+            }
+        }
+
+        [Authorize(Roles = "ADMIN")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public IActionResult Modifica(int id, FotoFormModel data)
+        {
+
+            if (!ModelState.IsValid)
+            {
+
+
+                List<Category> eventiNelDb = _myDb.Categories.ToList();
+                List<SelectListItem> eventoSelezionato = new List<SelectListItem>();
+
+                foreach (Category evento in eventiNelDb)
+                {
+                    eventoSelezionato.Add(new SelectListItem
+                    {
+                        Text = evento.Name,
+                        Value = evento.Id.ToString(),
+                    });
+                }
+
+                data.Categories = eventoSelezionato;
+
+                return View("Modifica", data);
+            }
+
+            Foto? fotoDaModificare = _myDb.Fotos.Where(f => f.Id == id).Include(f => f.Categories).FirstOrDefault();
+
+            if (fotoDaModificare != null)
+            {
+                fotoDaModificare.Title = data.Foto.Title;
+                fotoDaModificare.Description = data.Foto.Description;
+                fotoDaModificare.Pathimg = data.Foto.Pathimg;
+
+                if (data.eventoIdSelezionato != null)
+                {
+                    foreach (string eventoSelezionato in data.eventoIdSelezionato)
+                    {
+                        int intEventoSelzionato = int.Parse(eventoSelezionato);
+
+                        Category? eventoInDb = _myDb.Categories.Where(e => e.Id == intEventoSelzionato).FirstOrDefault();
+
+                        if (eventoInDb != null)
+                        {
+                            fotoDaModificare.Categories.Add(eventoInDb);
+                        }
+                    }
+                }
+
+                _myDb.SaveChanges();
+
+                return RedirectToAction("Index");
+
+            }
+            else
+            {
+                return NotFound("Non è stata trovato il post da aggiornare");
+            }
+        
+        }
+
 
 		[Authorize(Roles = "SUPERADMIN, ADMIN")]
 		[HttpGet]
@@ -108,9 +205,21 @@ namespace net_il_mio_fotoalbum.Controllers
         }
 
         [Authorize(Roles = "SUPERADMIN, ADMIN")]
+        [HttpPost]
         public IActionResult Cancella(int id)
         {
-            return View("Index");
+            Foto? postDaCancellare = _myDb.Fotos.Where(f => f.Id == id).FirstOrDefault();
+
+            if (postDaCancellare != null)
+            {
+                _myDb.Fotos.Remove(postDaCancellare);
+                _myDb.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return NotFound("Nessuna pizza da cancellare");
+            }
         }
     }
 }

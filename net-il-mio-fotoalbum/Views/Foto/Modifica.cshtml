@@ -1,2 +1,40 @@
-﻿
-<h1>modifica</h1>
+﻿@model FotoFormModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Modifica il post</h1>
+        </div>
+        <form asp-controller="Foto" asp-action="Modifica" asp-route-id="@Model.Foto.Id" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Foto.Id" />
+            <div class="mb-3">
+                <strong>Titolo:</strong>
+                <input type="text" class="form-control" asp-for="Foto.Title">
+                <span asp-validation-for="Foto.Title" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <strong>Descrizione:</strong>
+                <input type="text" class="form-control" asp-for="Foto.Description">
+                <span asp-validation-for="Foto.Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <strong>Evento:</strong>
+                <select asp-for="eventoIdSelezionato"
+                        multiple="multiple"
+                        size="10"
+                        class="form-control mb-2 mr-sm-2 ml-sm-3 leftList"
+                        asp-items="@Model.Categories">
+                </select>
+            </div>
+            <div class="mb-3">
+                <strong>URL Immagine:</strong>
+                <input type="text" class="form-control" asp-for="Foto.Pathimg">
+                <span asp-validation-for="Foto.Pathimg" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Modifica il post</button>
+        </form>
+    </div>
+</div>
