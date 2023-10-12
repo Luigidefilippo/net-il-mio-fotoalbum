@@ -11,6 +11,43 @@
     <None Include="wwwroot\img\about-img.jpg" />
     <None Include="wwwroot\img\header.jpg" />
     <None Include="wwwroot\img\photographer.png" />
+    <None Include="wwwroot\simplelightbox-master\.babelrc" />
+    <None Include="wwwroot\simplelightbox-master\.gitignore" />
+    <None Include="wwwroot\simplelightbox-master\demo\demo.css" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\bg.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\full\01.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\full\02.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\full\03.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\full\04.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\full\05.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\full\06.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\mouse.svg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\thumb\01.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\thumb\02.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\thumb\03.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\thumb\04.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\thumb\05.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\img\thumb\06.jpg" />
+    <None Include="wwwroot\simplelightbox-master\demo\index.html" />
+    <None Include="wwwroot\simplelightbox-master\demo\onlyImages.html" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.css" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.esm.js" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.jquery.js" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.jquery.min.js" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.js" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.legacy.js" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.legacy.min.js" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.min.css" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.min.js" />
+    <None Include="wwwroot\simplelightbox-master\dist\simple-lightbox.modules.js" />
+    <None Include="wwwroot\simplelightbox-master\gulpfile.js" />
+    <None Include="wwwroot\simplelightbox-master\LICENSE" />
+    <None Include="wwwroot\simplelightbox-master\README.md" />
+    <None Include="wwwroot\simplelightbox-master\src\jquery-plugin-wrap.js" />
+    <None Include="wwwroot\simplelightbox-master\src\legacy.js" />
+    <None Include="wwwroot\simplelightbox-master\src\license-notice.txt" />
+    <None Include="wwwroot\simplelightbox-master\src\simple-lightbox.js" />
+    <None Include="wwwroot\simplelightbox-master\src\simple-lightbox.scss" />
   </ItemGroup>
 
   <ItemGroup>

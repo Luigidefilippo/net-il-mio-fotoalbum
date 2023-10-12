@@ -266,7 +266,7 @@ blockquote {
 
 .sec-one-left {
     height: 100vh;
-    background: url("images/project-main.jpg") center/cover no-repeat;
+    background: url("/img/project-main.jpg") center/cover no-repeat;
     box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.75);
@@ -315,13 +315,13 @@ blockquote {
 }
 
 .work-img-1 {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("images/porject-1.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("/img/porject-1.jpg") center/cover no-repeat;
     height: 400px;
     transition: var(--transition);
 }
 
 .work-img-2 {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("images/porject-2.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("/img/porject-2.jpg") center/cover no-repeat;
     height: 400px;
     transition: var(--transition);
 }
@@ -541,6 +541,7 @@ blockquote {
     color: #fff;
     padding: 40px 0;
     text-align: center;
+    height:100%
 }
 
 .footer-container > div {
