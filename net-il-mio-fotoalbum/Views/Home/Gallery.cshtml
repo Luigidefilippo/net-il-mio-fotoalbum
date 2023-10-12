@@ -1,8 +1,26 @@
-﻿<script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="~/css/Header.css" />
-<link rel="stylesheet" href="/simplelightbox-master/dist/simple-lightbox.css" />
+﻿<link rel="stylesheet" href="~/css/Header.css" />
+<script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="~/simplelightbox-master/dist/simple-lightbox.css" />
 
 
+<div class="container">
+    <div class="text-center">
+        <div class="input-group">
+            <input type="text"
+                   id="cerca"
+                   onkeyup="getFoto()"
+                   class="form-control"
+                   placeholder="Cerca un post" />
+            <button class="btn btn-primary" type="button">Cerca</button>
+        </div>
+
+        <div class="container d-flex justify-content-around flex-wrap p-5 gap-4" id="card-container">
+            <!-- CARD -->
+        </div>
+    </div>
+</div>
+
+<!-- main -->
 <section class="section-three">
     <div class="container">
         <div class="gallery">
@@ -10,79 +28,79 @@
                 <div class="single-img">
                     <img src="~/img/gallery1.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>NATURE</h3>
+                        <h3>sunset</h3>
                     </div>
                 </div>
             </a>
 
-            <a href="/img/gallery2.jpg">
+            <a href="~/img/gallery2.jpg">
                 <div class="single-img">
-                    <img src="/img/gallery2.jpg" alt="gallery image">
+                    <img src="~/img/gallery2.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>METROPOLIS</h3>
+                        <h3>City</h3>
                     </div>
                 </div>
             </a>
 
-            <a href="/img/gallery3.jpg">
+            <a href="~/img/gallery3.jpg">
                 <div class="single-img">
-                    <img src="/img/gallery3.jpg" alt="gallery image">
+                    <img src="~/img/gallery3.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>NATURE</h3>
+                        <h3>Natura</h3>
                     </div>
                 </div>
             </a>
 
-            <a href="/img/gallery4.jpg">
+            <a href="~/img/gallery4.jpg">
                 <div class="single-img">
-                    <img src="/img/gallery4.jpg" alt="gallery image">
+                    <img src="~/img/gallery4.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>SUNSET</h3>
+                        <h3>Sunset</h3>
                     </div>
                 </div>
             </a>
 
-            <a href="/img/gallery5.jpg">
+            <a href="~/img/gallery5.jpg">
                 <div class="single-img">
-                    <img src="/img/gallery5.jpg" alt="gallery image">
+                    <img src="~/img/gallery5.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>NATURE</h3>
+                        <h3>Natura</h3>
                     </div>
                 </div>
             </a>
 
-            <a href="/img/gallery6.jpg">
+            <a href="~/img/gallery6.jpg">
                 <div class="single-img">
-                    <img src="/img/gallery6.jpg" alt="gallery image">
+                    <img src="~/img/gallery6.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>MARE</h3>
+                        <h3>Mare</h3>
                     </div>
                 </div>
             </a>
 
-            <a href="/img/gallery7.jpg">
+            <a href="~/img/gallery7.jpg">
                 <div class="single-img">
-                    <img src="/img/gallery7.jpg" alt="gallery image">
+                    <img src="~/img/gallery7.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>NATURE</h3>
+                        <h3>Natura</h3>
                     </div>
                 </div>
             </a>
 
-            <a href="/img/gallery8.jpg">
+            <a href="~/img/gallery8.jpg">
                 <div class="single-img">
-                    <img src="/img/gallery8.jpg" alt="gallery image">
+                    <img src="~/img/gallery8.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>FOOD</h3>
+                        <h3>Cibo</h3>
                     </div>
                 </div>
             </a>
 
-            <a href="/img/gallery9.jpg">
+            <a href="~/img/gallery9.jpg">
                 <div class="single-img">
-                    <img src="/img/gallery9.jpg" alt="gallery image">
+                    <img src="~/img/gallery9.jpg" alt="gallery image">
                     <div class="single-img-content">
-                        <h3>MARE</h3>
+                        <h3>Mare</h3>
                     </div>
                 </div>
             </a>
@@ -90,5 +108,6 @@
     </div>
 </section>
 <!-- end of main -->
-<script src="~/simplelightbox-master/dist/simple-lightbox.js"></script>
+<!-- LIGHTBOX -->
+<script src="simplelightbox-master/dist/simple-lightbox.js"></script>
 <script src="~/js/site.js"></script>
