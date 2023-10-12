@@ -13,10 +13,13 @@ namespace net_il_mio_fotoalbum.Models
 		[Required(ErrorMessage = "Inserisci una descrizione")]
 		public string Description { get; set; }
 
-		[Required(ErrorMessage = "Campo obbligatorio")]
-		public string Pathimg { get; set; }
+        public string? Pathimg { get; set; }
 
-		public bool Visible { get; set; }
+        public byte[]? Imagefile { get; set; }
+
+        public string ImagesrcFile => Imagefile is null ? (Pathimg is null ? "" : Pathimg) : $"data:image/png;base64, {Convert.ToBase64String(Imagefile)}";
+
+        public bool Visible { get; set; }
 
 		public List<Category>? Categories { get; set; }
 

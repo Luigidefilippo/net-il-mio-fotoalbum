@@ -1,73 +1,213 @@
 ﻿@{
-    Layout = "_Layout";
+    Layout = null;
 }
 
-@model List<Foto>
-   <div class="container">
-        <div class="row">
-            <div class="col-12">
-                @if (User.IsInRole("SUPERADMIN"))
-                {
-                    <a class=" btn btn-primary" href="@Url.Action("Creazione", "Foto")">
-                        Crea una nuova tabella
-                    </a>
 
-                }
+<!DOCTYPE html>
+<html lang="en">
 
-                <h1 class="my-5">Lista delle foto</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ADMIN PAGE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet"  href="/css/responsive.css">
+</head>
 
+<body>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Immagine</th>
-                            <th scope="col">Titolo</th>
-                            <th scope="col">Descrizione</th>
-                            <th scope="col">Eventi</th>
-                            <th scope="col">Azioni</th>
+    <!-- for header part -->
+    <header>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (Foto foto in Model)
-                        {
-                            <tr>
-                                <th scope="row">@foto.Id</th>
-                                <td><img class="w-50" src="@foto.Pathimg" alt="@foto.Title" /></td>
-                                <td>@foto.Title</td>
-                                <td>@foto.Description</td>
-                                <td>
-                                    @if (foto.Categories?.Count > 0)
+        <div class="logosec">
+            <div class="logo">Sara Doe</div>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+                 class="icn menuicn"
+                 id="menuicn"
+                 alt="menu-icon">
+        </div>
+
+        <div class="searchbar">
+            <input type="text"
+                   placeholder="Search">
+            <div class="searchbtn">
+                <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #3ec106;"></i>
+                    
+            </div>
+        </div>
+
+        <div class="message">
+            <div class="circle"></div>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
+                 class="icn"
+                 alt="">
+            <div class="dp">
+                <img src="~/img/about-img.jpg"
+                     class="dpicn"
+                     alt="dp">
+            </div>
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                       <i class="fa-solid fa-cubes fa-2xl" style="color: #ffff;"></i>
+                        <h3> Dashboard</h3>
+                    </div>
+
+                    <div class="option2 nav-option">
+                        <i class="fa-regular fa-newspaper fa-2xl" style="color: #14ca07;"></i>
+                        <h3> Articles</h3>
+                    </div>
+                    <div class="nav-option option5">
+<i class="fa-regular fa-user fa-2xl" style="color: #14ca07;"></i>
+                         <h3>Profile</h3>
+                    </div>
+
+                    <div class="nav-option option6">
+<i class="fa-solid fa-gear fa-2xl" style="color: #14ca07;"></i>
+                        <h3> Settings</h3>
+                    </div>
+
+                    <div class="nav-option logout">
+                         <a href="/"> <i class="fa-solid fa-right-from-bracket fa-2xl" style="color: #14ca07;"></i></a>
+                        <h3>Logout</h3>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+
+            <div class="searchbar2">
+                <input type="text"
+                       name=""
+                       id=""
+                       placeholder="Search">
+                <div class="searchbtn">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                         class="icn srchicn"
+                         alt="search-button">
+                </div>
+            </div>
+
+            <div class="box-container">
+
+                <div class="box box1">
+                    <div class="text">
+                        <h2 class="topic-heading">60.5k</h2>
+                        <h2 class="topic">Article Views</h2>
+                    </div>
+
+                    <i class="fa-regular fa-eye fa-2xl" style="color: #3fa608;"></i>
+                       
+                </div>
+
+                <div class="box box2">
+                    <div class="text">
+                        <h2 class="topic-heading">150</h2>
+                        <h2 class="topic">Likes</h2>
+                    </div>
+
+                    <i class="fa-regular fa-thumbs-up fa-2xl" style="color: #88d332;"></i>
+                         
+                </div>
+
+                <div class="box box3">
+                    <div class="text">
+                        <h2 class="topic-heading">320</h2>
+                        <h2 class="topic">Comments</h2>
+                    </div>
+
+                    <i class="fa-regular fa-message fa-2xl" style="color: #88d332;"></i>
+                         
+                </div>
+
+                <div class="box box4">
+                    <div class="text">
+                        <h2 class="topic-heading">70</h2>
+                        <h2 class="topic">Published</h2>
+                    </div>
+
+                    <i class="fa-solid fa-check fa-2xl" style="color: #7ccb1a;"></i>
+                </div>
+            </div>
+
+            <div class="report-container">
+                <div class="report-header">
+                    <h1 class="recent-Articles">Recen Foto</h1>
+                    <a  href="@Url.Action("Creazione", "Foto")">New Foto</a>
+                </div>
+
+                <div class="report-body">
+                    <div class="report-topic-heading">
+                        <h3 class="t-op">ID</h3>
+                        <h3 class="t-op">Titolo</h3>
+                        <h3 class="t-op">Descrizione</h3>
+                        <h3 class="t-op">Category</h3>
+                        <h3 class="t-op">Details</h3>
+                        <h3 class="t-op">Edit</h3>
+                        <h3 class="t-op">Delete</h3>
+                    </div>
+                    @foreach( Foto foto in Model)
+                    {
+                        <div class="item1">
+                            <h3 class="t-op-nextlvl">@foto.Id</h3
+                            <h3 class="t-op-nextlvl">@foto.Title</h3>
+                            <h3 class="t-op-nextlvl">@foto.Description</h3>
+                            <h3 class="t-op-nextlvl">
+                                @if (foto.Categories?.Count > 0)
+                                {
+                                    @string.Join(", ", foto.Categories.Select(i=>i.Name))
+                                }
+                                else
+                                {
+                                    <span>Nessuna Categoria associata</span>
+                                }
+                            </h3>
+                            <a class="no-underline black-text" href="@Url.Action("Dettagli", "Foto", new{id=foto.Id})">Details</a>
+                             @if (User.IsInRole("SUPERADMIN"))
                                     {
-                                        @string.Join(", ", foto.Categories.Select(i=>i.Name))
-                                    }
-                                    else
-                                    {
-                                        <span>Nessuna Categoria associata</span>
-                                    }
-                                </td>
-                                <td>
-                                    <a class="btn btn-primary m-1" href="@Url.Action("Dettagli", "Foto", new{id=foto.Id})">Dettagli della foto</a>
-                                    @if (User.IsInRole("SUPERADMIN"))
-                                    {
-                                        <a class="btn btn-primary m-1" href="@Url.Action("Modifica", "Foto", new{id=foto.Id})">Modifica la foto</a>
+
+                                        <a class="no-underline black-text" href="@Url.Action("Modifica", "Foto", new { id = foto.Id })">Edit</a>
+
                                         <form asp-controller="Foto" asp-action="Cancella" asp-route-id="@foto.Id" method="post">
                                             @Html.AntiForgeryToken()
-                                            <button type="submit" class="btn btn-primary m-1">
-                                                Cancella
+                                            <button type="submit" class="custom-button danger-button">
+                                                Delete
                                             </button>
                                         </form>
                                     }
+                        </div>
+                        
+                    }
 
-                                </td>
-                            </tr>
-                        }
 
-                    </tbody>
-                </table>
+
+
+
+
+                   @*  <div class="items">
+                        <div class="item1">
+                            <h3 class="t-op-nextlvl">ID</h3>
+                            <h3 class="t-op-nextlvl">Immagine</h3>
+                            <h3 class="t-op-nextlvl">Titolo</h3>
+                            <h3 class="t-op-nextlvl label-tag">Category</h3>
+                        </div>
+ *@
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
 
+    <script src="~/js/dashboard.js"></script>
+</body>
+</html>

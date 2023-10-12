@@ -119,6 +119,15 @@ namespace net_il_mio_fotoalbum.Controllers
                     }
                 }
 
+                if (data.ImageFormFile != null)
+                {
+
+                    MemoryStream stream = new MemoryStream();
+
+                    data.ImageFormFile.CopyTo(stream);
+                    fotoDaModificare.Imagefile = stream.ToArray();
+                }
+
                 _myDb.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -198,6 +207,8 @@ namespace net_il_mio_fotoalbum.Controllers
                 }
             }
 
+            this.SetImageFile(data);
+
             _myDb.Fotos.Add(data.Foto);
             _myDb.SaveChanges();
 
@@ -221,5 +232,21 @@ namespace net_il_mio_fotoalbum.Controllers
                 return NotFound("Nessuna pizza da cancellare");
             }
         }
+
+        private void SetImageFile(FotoFormModel formData)
+        {
+            if (formData.ImageFormFile == null)
+            {
+                return;
+            }
+
+            MemoryStream stream = new MemoryStream();
+
+            formData.ImageFormFile.CopyTo(stream);
+            formData.Foto.Imagefile = stream.ToArray();
+
+
+        }
+
     }
 }

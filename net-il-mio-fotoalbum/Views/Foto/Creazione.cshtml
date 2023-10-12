@@ -5,7 +5,7 @@
         <div class="col-12">
             <h1>Crea un nuovo post!!</h1>
         </div>
-        <form asp-controller="Foto" asp-action="Creazione" method="post">
+        <form asp-controller="Foto" asp-action="Creazione" enctype="multipart/form-data" method="post">
             @Html.AntiForgeryToken()
             <div class="mb-3">
                 <strong>Titolo:</strong>
@@ -31,6 +31,11 @@
                 <strong>URL Immagine:</strong>
                 <input type="text" class="form-control" asp-for="Foto.Pathimg">
                 <span asp-validation-for="Foto.Pathimg" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ImageFormFile">Seleziona l'immagine da caricare</label>
+                <input type="file" asp-for="ImageFormFile" />
+                <span asp-validation-for="ImageFormFile" class="text-error"></span>
             </div>
 
             <button type="submit" class="btn btn-primary">Crea il nuovo post</button>
