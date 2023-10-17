@@ -4,11 +4,11 @@ using net_il_mio_fotoalbum.Database;
 
 namespace net_il_mio_fotoalbum.Controllers.Api
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/usermessage")]
     [ApiController]
     public class MessagesController : ControllerBase
     {
-        private FotoContext _myDb;
+        private readonly FotoContext _myDb;
 
         public MessagesController(FotoContext db)
         {
@@ -16,7 +16,7 @@ namespace net_il_mio_fotoalbum.Controllers.Api
         }
 
         [HttpPost]
-        public IActionResult CreateMessage(Message message)
+        public IActionResult CreateMessage([FromBody]Message message)
         {
             _myDb.Add(message);
 

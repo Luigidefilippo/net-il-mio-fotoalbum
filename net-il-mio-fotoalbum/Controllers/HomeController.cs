@@ -43,6 +43,16 @@ namespace net_il_mio_fotoalbum.Controllers
 			return View();
 		}
 
+		public IActionResult MessageSend() 
+		{
+			return View();
+		}
+
+		public IActionResult Notfound()
+		{
+			return View();
+		}
+
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{

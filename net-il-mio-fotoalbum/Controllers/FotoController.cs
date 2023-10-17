@@ -38,7 +38,7 @@ namespace net_il_mio_fotoalbum.Controllers
 
             if (fotoDaModificare == null)
             {
-                return NotFound($"il Post con {id} non possibile modificarla!");
+                return NotFound($"Non è stato possibile modificare il post con :  {id} ");
 
             }
             else
@@ -135,7 +135,7 @@ namespace net_il_mio_fotoalbum.Controllers
             }
             else
             {
-                return NotFound("Non è stata trovato il post da aggiornare");
+                return NotFound("Post da Aggiornare non trovato");
             }
         
         }
@@ -229,7 +229,7 @@ namespace net_il_mio_fotoalbum.Controllers
             }
             else
             {
-                return NotFound("Nessuna pizza da cancellare");
+                return NotFound("Nessuna Foto da cancellare");
             }
         }
 

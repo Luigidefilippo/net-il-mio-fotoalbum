@@ -27,34 +27,33 @@ function getFoto() {
         .catch((error) => alert(error))
 }
 
-function postMessage(message) {
-    axios.post("/api/Messages", message)
-        .then((resp) => {
-            console.log(resp.data)
-        })
-        .catch(err => console.log(err));
+function formSubmit(e) {
+    e.preventDefault();
+    const userEmail = document.getElementById("email").value
+    const userMessage = document.getElementById("textMessage").value.trim();
+    const done = document.getElementById("done")
+
+    console.log(userEmail, userMessage)
 }
 
-function initMessageForm() {
-    const form = document.getElementById('message-create-form');
+axios.post("api/usermessage", { Title: userEmail, Text: userMessage })
+    .then(resp => {
+        done.classList.remove("d-none")
+    })
+    .catch(error => {
+        console.log(error)
 
-    form.addEventListener("submit", e => {
-        e.preventDefault()
+        done.classList.remove("d-none")
 
-        const message = getMessageForm(form)
-        getMessageForm(message);
-        email.value = "";
-        textMessage.value = "";
+        done.classList.add("text-error")
     })
 }
 
-function getMessageForm() {
-    const email = document.getElementById('email').value;
 
-    const textMessage = document.getElementById('text').value;
 
-    return {
-        email,
-        textMessage
-    }
-}
+document.getElementById('send-button').addEventListener('click', function (event) {
+    event.preventDefault();
+
+    
+    alert("Messaggio inviato");
+});
